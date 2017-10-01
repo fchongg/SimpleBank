@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class Bank {
     HashMap accounts;
 
+    // TODO: write test cases
     public Bank(){
         accounts = new HashMap<String, ArrayList<String>>();
     }
