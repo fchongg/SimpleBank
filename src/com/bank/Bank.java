@@ -40,21 +40,21 @@ public class Bank {
 
     }
 
-    // This function credits the amount from the account only if
-    // the credit does not make the balance fall below zero
+    // This function credits the amount from the account o
+    // Credits against Luhn 10 cards will produce an error
     public void credit(String name, String amount){
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int balance = Integer.parseInt(account_info.get(2));
         int new_bal = balance - Integer.parseInt(amount);
-        if (new_bal >= 0){
-            ((ArrayList<String>) accounts.get(name)).set(2, Integer.toString(new_bal));
-        }
+        accounts.get(name).set(2, Integer.toString(new_bal));
 
         System.out.println(accounts.get(name).toString());
     }
 
     // This function prints out the summary statement
     public void printSummary(){
-
+        for (accounts.Entry<String, ArrayList<String>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().get(2));
+        }
     }
 }
