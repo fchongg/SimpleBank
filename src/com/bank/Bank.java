@@ -1,24 +1,27 @@
 package com.bank;
+
 import java.util.HashMap;
 
-public class Bank{
+/**
+ * Created by Frances on 2017-09-30.
+ */
+public class Bank {
     HashMap accounts;
+
     public Bank(){
         accounts = new HashMap();
     }
 
-    public void addAccount(String name, String accountNum, String limit){
-    }
-
-    public void chargeAccount(String name, int value){
+    public void createAccount(String name, String account_num, String limit){
 
     }
 
-    public void creditAccount(String name, int value){
+    public void charges(String name, String amount){
 
     }
 
-    public void printSummary(){
+    public void credit(String name, String amount){
 
     }
+    
 }
