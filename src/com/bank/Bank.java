@@ -23,6 +23,9 @@ public class Bank {
         System.out.print(accounts.get(name).toString());
     }
 
+    // This function debits the amount to the specified bank account
+    // If the amount being debited will result in a balance greater than the
+    // limit, then it will not be debited
     public void charges(String name, String amount){
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int limit = Integer.parseInt(account_info.get(1).substring(1));
@@ -36,6 +39,8 @@ public class Bank {
 
     }
 
+    // This function credits the amount from the account only if
+    // the credit does not make the balance fall below zero
     public void credit(String name, String amount){
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int balance = Integer.parseInt(account_info.get(2));
@@ -46,5 +51,9 @@ public class Bank {
 
         System.out.println(accounts.get(name).toString());
     }
-    
+
+    // This function prints out the summary statement
+    public void printSummary(){
+
+    }
 }
