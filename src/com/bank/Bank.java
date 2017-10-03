@@ -2,6 +2,7 @@ package com.bank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Frances on 2017-09-30.
@@ -31,7 +32,7 @@ public class Bank {
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int limit = Integer.parseInt(account_info.get(1).substring(1));
         int balance = Integer.parseInt(account_info.get(2));
-        int new_bal = balance + Integer.parseInt(amount);
+        int new_bal = balance + Integer.parseInt(amount.substring(1,amount.length()));
         if (new_bal <= limit){
             ((ArrayList<String>) accounts.get(name)).set(2, Integer.toString(new_bal));
         }
@@ -45,7 +46,7 @@ public class Bank {
     public void credit(String name, String amount){
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int balance = Integer.parseInt(account_info.get(2));
-        int new_bal = balance - Integer.parseInt(amount);
+        int new_bal = balance - Integer.parseInt(amount.substring(1,amount.length()));
         if (new_bal >= 0){
             ((ArrayList<String>) accounts.get(name)).set(2, Integer.toString(new_bal));
         }
@@ -56,5 +57,19 @@ public class Bank {
     // This function prints out the summary statement
     public void printSummary(){
 
+    }
+
+    public void doAction(String line){
+        String[] parts = line.split(" ");
+        String function = parts[0];
+        if (function.equals("Add")){
+            this.createAccount(parts[1], parts[2], parts[3]);
+        }
+        else if (function.equals("Charge")){
+            this.charges(parts[1], parts[2]);
+        }
+        else if (function.equals("Credit")){
+            this.credit(parts[1], parts[2]);
+        }
     }
 }
