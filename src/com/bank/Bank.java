@@ -2,6 +2,7 @@ package com.bank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -41,22 +42,22 @@ public class Bank {
 
     }
 
-    // This function credits the amount from the account only if
-    // the credit does not make the balance fall below zero
+    // This function credits the amount from the account o
+    // Credits against Luhn 10 cards will produce an error
     public void credit(String name, String amount){
         ArrayList<String> account_info = (ArrayList<String>) accounts.get(name);
         int balance = Integer.parseInt(account_info.get(2));
         int new_bal = balance - Integer.parseInt(amount.substring(1,amount.length()));
-        if (new_bal >= 0){
-            ((ArrayList<String>) accounts.get(name)).set(2, Integer.toString(new_bal));
-        }
+        ((ArrayList<String>) accounts.get(name)).set(2, Integer.toString(new_bal));
 
         System.out.println(accounts.get(name).toString());
     }
 
     // This function prints out the summary statement
     public void printSummary(){
-
+//        for(HashMap.Entry<String, ArrayList<String>> entry : accounts.entrySet()){
+//            System.out.println(entry.getKey() + ": " + entry.getValue().get(2));
+//        }
     }
 
     public void doAction(String line){
