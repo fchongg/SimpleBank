@@ -13,6 +13,8 @@ public class Bank {
         accounts = new HashMap<String, ArrayList<String>>();
     }
 
+    // TODO: add Luhn 10 validation for these cards
+    // more information at: https://en.wikipedia.org/wiki/Luhn_algorithm
     public void createAccount(String name, String account_num, String limit){
         ArrayList<String> new_account = new ArrayList<String>();
         new_account.add(account_num);
