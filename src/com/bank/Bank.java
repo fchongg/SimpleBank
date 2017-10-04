@@ -1,9 +1,6 @@
 package com.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Frances on 2017-09-30.
@@ -55,9 +52,14 @@ public class Bank {
 
     // This function prints out the summary statement
     public void printSummary(){
-//        for(HashMap.Entry<String, ArrayList<String>> entry : accounts.entrySet()){
-//            System.out.println(entry.getKey() + ": " + entry.getValue().get(2));
-//        }
+        Iterator entries = accounts.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry thisEntry = (Map.Entry) entries.next();
+            Object key = thisEntry.getKey();
+            ArrayList<String> value = (ArrayList<String>) thisEntry.getValue();
+
+            System.out.println(key + ": $" + value.get(2));
+        }
     }
 
     public void doAction(String line){

@@ -17,6 +17,7 @@ public class Main {
         for (int i = 0; i < lines.size(); i++){
             new_bank.doAction(lines.get(i));
         }
+        new_bank.printSummary();
 //        new_bank.createAccount("Ben", "218397189", "$1000");
 //        new_bank.charges("Ben", "$20");
 //        new_bank.charges("Ben", "$800");
