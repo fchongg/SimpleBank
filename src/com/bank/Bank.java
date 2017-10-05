@@ -14,9 +14,15 @@ public class Bank {
         accounts = new HashMap<String, ArrayList<String>>();
     }
 
-    // TODO: add Luhn 10 validation for these cards
-    // more information at: https://en.wikipedia.org/wiki/Luhn_algorithm
+    public HashMap getAccounts(){
+        return accounts;
+    }
+    // This function creates an account and inputs it
+    // into the bank history
     public void createAccount(String name, String account_num, String limit){
+        if(name.equals("")){
+            return;
+        }
         ArrayList<String> new_account = new ArrayList<String>();
         boolean luhn_approved = Luhn.Check(account_num);
         new_account.add(account_num);

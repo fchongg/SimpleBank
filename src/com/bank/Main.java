@@ -8,8 +8,16 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        String file = "";
+        if (args.length == 2){
+            file = args[1];
+        }
+        else if (args.length == 1){
+            file = args[0];
+        }
+
         ReadFile rf = new ReadFile();
-        List<String> lines = rf.readFile(args[0]);
+        List<String> lines = rf.readFile(file);
 
         Bank new_bank = new Bank();
         for (int i = 0; i < lines.size(); i++){
